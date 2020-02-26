@@ -1,13 +1,11 @@
-number = 11
+# --- FIBONACCI EXERCISE
 n1 = 0
 n2 = 1
-if number >= 1:
-    print(n1, end=" ")
-elif number >= 2:
-    print(n2, end=" ")
-elif number >= 3:
-    for number in range (3, number + 1):
-        newnum = n1 + n2
-        print(newnum, end=" ")
-        n1 = n2
-        n2 = newnum
+print("0 1", end=' ')
+
+for i in range(2, 11):
+    term_n = n1 + n2
+    print(term_n, end=' ')
+
+    n1 = n2
+    n2 = term_n
