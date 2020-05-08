@@ -1,0 +1,7 @@
+     Destination IP     |     Name            |   Time                              |
+    ------------------  | -----------------   |   -------                           |
+     87.223.21.50       |     Self            |   2 ms, 648 ms, media: 246 ms       |
+     8.8.8.8            |     Google          |   41 ms, 56 ms, 3.92 ms, media: 45  |
+     212.128.240.50     |     www.urjc.es     |   29 ms, 82 ms, media: 50 ms        |
+     140.82.118.4       |     github.com      |   223 ms, 1973 ms, media: 819 ms    |
+     91.198.174.192     | wikipedia.org       |    1067 ms, 3894 ms, media: 2182 ms |
