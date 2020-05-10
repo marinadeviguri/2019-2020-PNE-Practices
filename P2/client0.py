@@ -20,23 +20,12 @@ class Client:
         termcolor.cprint(msg_to_server, "blue")
         print("From Server: ", end="")
         termcolor.cprint(msg_from_server, "green")
-
         return msg_from_server
 
     def talk(self, msg):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-        # establish the connection to the Server (IP, PORT)
         s.connect((self.ip, self.port))
-
-        # Sending data...
         s.send(str.encode(msg))
-
-        # Receiving data...
         response = s.recv(2048).decode("utf-8")
-
-        # Closing the socket...
         s.close()
-
-        # Return the response
         return response
