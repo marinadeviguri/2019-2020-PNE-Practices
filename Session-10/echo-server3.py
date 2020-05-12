@@ -1,8 +1,8 @@
 import socket
 import termcolor
 
-PORT = 8080
-IP = "192.168.124.179"
+PORT = 8081
+IP = "127.0.0.1"
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 ls.bind((IP, PORT))
