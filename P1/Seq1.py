@@ -65,3 +65,4 @@ class Seq:
         file_contents = Path(filename).read_text().split('\n')[1:]
         self.strbases = "".join(file_contents)
         return self
+
