@@ -1,0 +1,678 @@
+TEST REPORT ADVANCED
+====================
+
+---> Specieslist endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/listSpecies?limit=8
+
+* Output:
+
+
+<html>
+<body>
+<ol>
+<h3 align=center><p style="color:#fe70f4";><u>SPECIES LIST</u></p><li>Mainland tiger snake</li<br><li>Chilean tinamou</li<br><li>Red fox</li<br><li>Sperm whale</li<br><li>Great spotted kiwi</li<br><li>Pinecone soldierfish</li<br><li>Greater bamboo lemur</li<br><li>Kakapo</li<br></ol>
+</body>
+</html>
+
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/listSpecies?limit=4&json=1
+
+* Output:
+
+["Pig - Rongchang", "Pika", "African ostrich", "Nile tilapia"]
+
+--->  SpecieKariotype endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/karyotype?specie=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/karyotype?specie=cat
+
+* Output:
+
+
+                                   <html>
+                                   <body>
+                                   <ul>
+                                   <h3 align=center><p style="color:#f8fe70";><u>SPECIE KARYOTYPE</u></p><li>A1</li<br><li>A2</li<br><li>A3</li<br><li>B1</li<br><li>B2</li<br><li>B3</li<br><li>B4</li<br><li>C1</li<br><li>C2</li<br><li>D1</li<br><li>D2</li<br><li>D3</li<br><li>D4</li<br><li>E1</li<br><li>E2</li<br><li>E3</li<br><li>F1</li<br><li>F2</li<br><li>X</li<br><li>MT</li<br></ul>
+                                   </body>
+                                   </html>
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/karyotype?specie=casa
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 4:
+
+* Input:
+
+http://localhost:8080/karyotype?specie=casa&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+--->  ChromosomeLength endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=cat&chromo=2
+
+* Output:
+
+
+                                              <html>
+                                              <body>
+                                              <ul>
+                                              <h3 align=center><p style="color:#adfe70";><u>CHROMOSME LENGTH</u></p><li>The length of the chromosome  2,  specie  cat,  is: This chromosome does not exist for the specie selected</li></ul>
+                                              </body>
+                                              </html>
+
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=&chromo=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=mouse&chromo=1
+
+* Output:
+
+
+                                              <html>
+                                              <body>
+                                              <ul>
+                                              <h3 align=center><p style="color:#adfe70";><u>CHROMOSME LENGTH</u></p><li>The length of the chromosome  1,  specie  mouse,  is: 195471971</li></ul>
+                                              </body>
+                                              </html>
+
+* TEST 4:
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=cow&chromo=6&json=1
+
+* Output:
+
+117806340
+
+* TEST 5:
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=&chromo=&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+
+---> SequenceOfAHumanGene endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/geneSeq?gene=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/geneSeq?gene=FRAT1
+
+* Output:
+
+                                              <html>
+                                              <body>
+                                              <ul>
+                                              <h3 align=center><p style="color:#fed570";><u>SEQUENCE OF A HUMAN GENE</u></p><li>CGGCTCCCGCGGCTGCAGGCGCGCGGCTAGAGTGCCTGGCGGGCTCCGGCTTCCGCGTCCGCCCCGGCCCCGGTCCAGACTTAGTCTTCAGCTCCGCGCCCGCTCCGCCGCGGCCCACCGCGCCCGCCGGCAGCCGAGCCCCCAGCGACGCCCGCACAGCTCCGGGTGCCCAGACAGGGGGCCATGCCGTGCCGGAGGGAGGAGGAAGAGGAAGCCGGCGAGGAGGCGGAGGGGGAGGAAGAGGAGGAGGACAGCTTCCTCCTACTGCAGCAGTCAGTGGCGCTGGGCAGCTCGGGCGAGGTGGACCGGCTGGTGGCCCAGATCGGCGAGACGCTGCAGCTGGACGCGGCGCAGCACAGCCCGGCCTCGCCGTGCGGGCCCCCGGGGGCGCCGCTGCGGGCCCCGGGGCCCCTGGCTGCGGCGGTGCCGGCGGACAAGGCCAGGTCCCCGGCGGTGCCGCTGCTGCTGCCGCCCGCGTTGGCGGAGACTGTGGGCCCGGCGCCCCCTGGGGTCCTGCGCTGCGCCCTGGGGGACCGCGGCCGCGTGCGGGGCCGCGCTGCGCCCTACTGCGTGGCCGAGCTCGCCACAGGCCCCAGCGCGCTGTCCCCACTGCCCCCTCAGGCCGACCTTGATGGGCCTCCGGGAGCTGGCAAGCAGGGCATCCCGCAGCCGCTGTCGGGTCCGTGCCGGCGAGGATGGCTCCGGGGCGCCGCCGCCTCCCGCCGCCTGCAGCAGCGACGCGGGTCCCAACCAGAAACCCGCACAGGCGACGACGACCCGCACCGGCTTCTGCAGCAGCTAGTGCTCTCTGGAAACCTCATCAAGGAGGCCGTGCGAAGGCTTCATTCGCGACGGCTGCAGTTACGTGCAAAGCTTCCCCAACGCCCGCTCCTGGGACCTCTGTCGGCCCCGGTGCATGAACCCCCTTCGCCTCGCAGCCCTCGCGCGGCCTGCAGTGACCCTGGCGCCTCCGGGAGGGCGCAGCTCAGAACTGGCGACGGCGTTCTTGTGCCTGGCAGCTAACACGCCCGGGGTGGCCACAGCGCCAGCCTCAGACTGGAGGGCAAGGGGTTCCCTTGAGGGCTGCAGTTCTACTCAGGCTGGTGGAGAACTCTGGCTTTTGGAAGCGAGAGTAAAAAGCTAATGACGAGGAACCGAAAAATCGCGAGTGTTTCGCGGGTAACTGGGGTTGAGGGCCAAAATATTTGGAATGAAGGACTTTGGCCCTATTTAAGGCAGATTTTACAGAGCGCACCTCAAACGTACAAGTCAGTAGGACTCCTTATTTGGCGTGACCCGACCTGGCCGCGGAGCCTGCATTTCCTCGCAGCCTCTCAGTGCCCTCCAGCCCCGCGACCATGTGGCCACAATCCACGCTTCTCCGGATCGCGGTGCGCCGGAACCACGGAGGATGATGCCAGTTACTTGCTTTACCTTTTCAGGGCTGGCTCCTGATCCACTTTGGGGGAGGAGAACATGAGTAGATAATTTCAGGGTGCAGCCCAATCTGCCAGACTTAAAAAAACCATCTTGTGTCTTTGGAGGTGCTGCTTAATACCAAACATGCGGTGCCATGAAGGGACCCTTTGGGGGTTGAATAGGAGTTAACCCCTGCGCTCTCTTTGCAACTGTCTCTCTTCTCAGAGTGGTGGGGGAAGGCTGTACGACACGGGTGGGGAAAGGAGGTGGGGGCGGGGAGTATTGAATGGTGGTGGAAGGGTAGAGAGGCGCGGAGTGAACCCCACGCCCTGTCTAAAGTGTATTTTCAGAGCCGGCCCGCCTCTCCTCGGTTCAAGGTCACTGTTTCCTGGGCACGCACTGGGTTGCGGGACAGAGTAGCCAGGTTCTGCCGGTGCTCGGAGAAGAGCGCAGTGTTTTGCAAGTGCTGGAGTCTCCTGAGGACACGCGCGTCGCCGCCACCGCGGGTGTGGGAAAGCGCGGACGTGCTGGGCGGCTGTGCTTCGGTAGGCGACCACCGCCCCTGGCCGCGCTCCGGGCTTTCACGGAAACTCCCGAGACCGGGCCCTGGGTTCCTCCTCTCCTACTCGGCTCTGCAGTCCTACTCAAGCGGGTGGCTCTGGGATCCTGGGGGCCTGGGTTGGGGGCTAGGGAGACGCCATGTGATGGACACTCCAGGGACACACAGCCTAGCACAGCAGCTTATAATGGGCTCTCCGGGGCCATTTGCAATAACAGCTGCAATTCCCTGGATAGACGAGTTGATTTCCTCCCTCTGCCCCTCCCCCAGCCATGCCAGCTGGCCTTTGTAAGTGCAGGAAACCGAGTAGAAAATGTGACCCTCCAAATGGAGAAGCTGCAGGCTTTGCCATTGTGAACCATGGTGAAGTGCTTGGAACATACTGTTCACTCACTCTAAAGGCGCTGAGACTGTGCTGTTGTTCTCGTTTTTATAGTCAATGGCTTGTTCATCATCCAGATGTGGCTACTGACATATCTACACTTCGCACCGGAGTGTCTGGAATTGTGGCTATCCTGATTATAGGATTTTAACTTAACTGAAATGCCTGCTTTGAATAAATGTGTTGGGTTTTTTGTTTGGTTTTATTTTATACTTGCCATCAGTGAAAAAGATGTACAGAACACATTTCTCTGATCTCCATAAACATGAAAACACTTGAAATCTC</li<br></ul>
+                                              </body>
+                                              </html>
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/geneSeq?gene=hola
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 4:
+
+* Input:
+
+http://localhost:8080/geneSeq?gene=&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 5:
+
+* Input:
+
+http://localhost:8080/geneSeq?gene=TNF&json=1
+
+* Output:
+
+"AGCAGACGCTCCCTCAGCAAGGACAGCAGAGGACCAGCTAAGAGGGAGAGAAGCAACTACAGACCCCCCCTGAAAACAACCCTCAGACGCCACATCCCCTGACAAGCTGCCAGGCAGGTTCTCTTCCTCTCACATACTGACCCACGGCTCCACCCTCTCTCCCCTGGAAAGGACACCATGAGCACTGAAAGCATGATCCGGGACGTGGAGCTGGCCGAGGAGGCGCTCCCCAAGAAGACAGGGGGGCCCCAGGGCTCCAGGCGGTGCTTGTTCCTCAGCCTCTTCTCCTTCCTGATCGTGGCAGGCGCCACCACGCTCTTCTGCCTGCTGCACTTTGGAGTGATCGGCCCCCAGAGGGAAGAGGTGAGTGCCTGGCCAGCCTTCATCCACTCTCCCACCCAAGGGGAAATGGAGACGCAAGAGAGGGAGAGAGATGGGATGGGTGAAAGATGTGCGCTGATAGGGAGGGATGGAGAGAAAAAAACGTGGAGAAAGACGGGGATGCAGAAAGAGATGTGGCAAGAGATGGGGAAGAGAGAGAGAGAAAGATGGAGAGACAGGATGTCTGGCACATGGAAGGTGCTCACTAAGTGTGTATGGAGTGAATGAATGAATGAATGAATGAACAAGCAGATATATAAATAAGATATGGAGACAGATGTGGGGTGTGAGAAGAGAGATGGGGGAAGAAACAAGTGATATGAATAAAGATGGTGAGACAGAAAGAGCGGGAAATATGACAGCTAAGGAGAGAGATGGGGGAGATAAGGAGAGAAGAAGATAGGGTGTCTGGCACACAGAAGACACTCAGGGAAAGAGCTGTTGAATGCCTGGAAGGTGAATACACAGATGAATGGAGAGAGAAAACCAGACACCTCAGGGCTAAGAGCGCAGGCCAGACAGGCAGCCAGCTGTTCCTCCTTTAAGGGTGACTCCCTCGATGTTAACCATTCTCCTTCTCCCCAACAGTTCCCCAGGGACCTCTCTCTAATCAGCCCTCTGGCCCAGGCAGTCAGTAAGTGTCTCCAAACCTCTTTCCTAATTCTGGGTTTGGGTTTGGGGGTAGGGTTAGTACCGGTATGGAAGCAGTGGGGGAAATTTAAAGTTTTGGTCTTGGGGGAGGATGGATGGAGGTGAAAGTAGGGGGGTATTTTCTAGGAAGTTTAAGGGTCTCAGCTTTTTCTTTTCTCTCTCCTCTTCAGGATCATCTTCTCGAACCCCGAGTGACAAGCCTGTAGCCCATGTTGTAGGTAAGAGCTCTGAGGATGTGTCTTGGAACTTGGAGGGCTAGGATTTGGGGATTGAAGCCCGGCTGATGGTAGGCAGAACTTGGAGACAATGTGAGAAGGACTCGCTGAGCTCAAGGGAAGGGTGGAGGAACAGCACAGGCCTTAGTGGGATACTCAGAACGTCATGGCCAGGTGGGATGTGGGATGACAGACAGAGAGGACAGGAACCGGATGTGGGGTGGGCAGAGCTCGAGGGCCAGGATGTGGAGAGTGAACCGACATGGCCACACTGACTCTCCTCTCCCTCTCTCCCTCCCTCCAGCAAACCCTCAAGCTGAGGGGCAGCTCCAGTGGCTGAACCGCCGGGCCAATGCCCTCCTGGCCAATGGCGTGGAGCTGAGAGATAACCAGCTGGTGGTGCCATCAGAGGGCCTGTACCTCATCTACTCCCAGGTCCTCTTCAAGGGCCAAGGCTGCCCCTCCACCCATGTGCTCCTCACCCACACCATCAGCCGCATCGCCGTCTCCTACCAGACCAAGGTCAACCTCCTCTCTGCCATCAAGAGCCCCTGCCAGAGGGAGACCCCAGAGGGGGCTGAGGCCAAGCCCTGGTATGAGCCCATCTATCTGGGAGGGGTCTTCCAGCTGGAGAAGGGTGACCGACTCAGCGCTGAGATCAATCGGCCCGACTATCTCGACTTTGCCGAGTCTGGGCAGGTCTACTTTGGGATCATTGCCCTGTGAGGAGGACGAACATCCAACCTTCCCAAACGCCTCCCCTGCCCCAATCCCTTTATTACCCCCTCCTTCAGACACCCTCAACCTCTTCTGGCTCAAAAAGAGAATTGGGGGCTTAGGGTCGGAACCCAAGCTTAGAACTTTAAGCAACAAGACCACCACTTCGAAACCTGGGATTCAGGAATGTGTGGCCTGCACAGTGAAGTGCTGGCAACCACTAAGAATTCAAACTGGGGCCTCCAGAACTCACTGGGGCCTACAGCTTTGATCCCTGACATCTGGAATCTGGAGACCAGGGAGCCTTTGGTTCTGGCCAGAATGCTGCAGGACTTGAGAAGACCTCACCTAGAAATTGACACAAGTGGACCTTAGGCCTTCCTCTCTCCAGATGTTTCCAGACTTCCTTGAGACACGGAGCCCAGCCCTCCCCATGGAGCCAGCTCCCTCTATTTATGTTTGCACTTGTGATTATTTATTATTTATTTATTATTTATTTATTTACAGATGAATGTATTTATTTGGGAGACCGGGGTATCCTGGGGGACCCAATGTAGGAGCTGCCTTGGCTCAGACATGTTTTCCGTGAAAACGGAGCTGAACAATAGGCTGTTCCCATGTAGCCCCCTGGCCTCTGTGCCTTCTTTTGATTATGTTTTTTAAAATATTTATCTGATTAAGTTGTCTAAACAATGCTGATTTGGTGACCAACTGTCACTCATTGCTGAGCCTCTGCTCCCCAGGGGAGTTGTGTCTGTAATCGCCCTACTATTCAGTGGCGAGAAATAAAGTTTGCTTAGAAAAGAAA"
+
+* TEST 6:
+
+* Input:
+
+http://localhost:8080/geneSeq?gene=hola&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+---> DataAboutAHumanGenome endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/geneInfo?gene=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/geneInfo?gene=ADA
+
+* Output:
+
+
+                                              <html>
+                                              <body>
+                                              <ul>
+                                              <h3 align=center><p style="color:#70c2fe";><u>INFORMATION ABOUT A HUMAN GENE</u></p> The end is: 44624247<br> The start is: 44531785<br> The lenght is: 92462<br> The ID is: ENSG00000168734<br>The chromosome is: GRCh38<br></ul>
+                                              </body>
+                                              </html>
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/geneInfo?gene=hola
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+
+* TEST 4:
+
+* Input:
+
+http://localhost:8080/geneInfo?gene=hola&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 5:
+
+* Input:
+
+http://localhost:8080/geneInfo?gene=ADA&json=1
+
+* Output:
+
+{"Start": 44531785, "End": 44624247, "Length": 92462, "Id": "ENSG00000168734", "Chromosome": "GRCh38"}
+
+* TEST 6:
+
+* Input:
+
+http://localhost:8080/geneInfo?gene=&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+---> CalulationsOnAHumanGene endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/geneCalc?gene=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/geneCalc?gene=APOE
+
+* Output:
+
+
+                                              <html>
+                                              <body>
+                                              <ul>
+                                              <h3 align=center><p style="color:#d970fe";><u>CALCULATIONS ON A HUMAN GENE</u></p> The total length is: 3603<br> The percentage of the base Adenine is: 18.5<br> The percentage of the base Thymine is: 20.4<br> The percentage of the base Guanine is: 31.4<br>The percentage of the base Cytosine is: 29.6<br></ul>
+                                              </body>
+                                              </html>
+
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/geneCalc?gene=hola
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 4:
+
+* Input:
+
+http://localhost:8080/geneCalc?gene=&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+
+* TEST 5:
+
+* Input:
+
+http://localhost:8080/geneCalc?gene=APOE&json=1
+
+* Output:
+
+{"Total length": 3603, "Percentage A": 18.5, "Percentage T": 20.4, "Percentage G": 31.4, "Percentage C": 29.6}
+
+* TEST 6:
+
+* Input:
+
+http://localhost:8080/geneCalc?gene=HOLA&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Error page</title>
+      </head>
+      <body style="background-color: darkred;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>OOPS! PAGE NOT FOUND</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+
+---> GenesLocatedOnAChromosomeFromStartToEndPositions endpoint
+
+* TEST 1:
+
+* Input:
+
+http://localhost:8080/geneList?chromo=&start=&end=
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 2:
+
+* Input:
+
+http://localhost:8080/geneList?chromo=2&start=1&end=98000
+
+* Output:
+
+
+                                                      <html>
+                                                      <body>
+                                                      <ol>
+                                                      <h3 align=center><p style="color:#70feb9";><u>GENES LOCA
+                                                      TED ON A CHROMOSOME FROM START TO END POSITIONS</u></p><li>GENE FAM110C;   START: 38814   END: 46870</li><br></ol>
+                                                                  </body>
+                                                                  </html>
+
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/geneList?chromo=2&start=1&end=98000&json=1
+
+* Output:
+
+[{"external_name": "FAM110C", "start": 38814, "end": 46870}]
+
+* TEST 3:
+
+* Input:
+
+http://localhost:8080/geneList?chromo=&start=1&end=98000&json=1
+
+* Output:
+
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>404 Error</title>
+      </head>
+      <body style="background-color: firebrick;">
+      <h1 align=center><p style="color:white";><u>404 ERROR</u></p></h1>
+        <h2 align="center"><p style="color:black"> <u>The endpoint you requested is not available!</u></p></h2>
+        <br>
+        <br>
+       <p><a href="http://127.0.0.1:8000/">Go back to Main Page</a></p>
+      </body>
+    </html>
+
+* TEST 4:
+
+* Input:
+
+http://localhost:8080/geneList?chromo=1&start=2400&end=98000
+
+* Output:
+
+
+                                                      <html>
+                                                      <body>
+                                                      <ol>
+                                                      <h3 align=center><p style="color:#70feb9";><u>GENES LOCA
+                                                      TED ON A CHROMOSOME FROM START TO END POSITIONS</u></p><li>GENE DDX11L1;   START: 11869   END: 14409</li><br><li>GENE WASH7P;   START: 14404   END: 29570</li><br><li>GENE MIR6859-1;   START: 17369   END: 17436</li><br><li>GENE MIR1302-2HG;   START: 29554   END: 31109</li><br><li>GENE MIR1302-2;   START: 30366   END: 30503</li><br><li>GENE FAM138A;   START: 34554   END: 36081</li><br><li>GENE OR4G4P;   START: 52473   END: 53312</li><br><li>GENE OR4G11P;   START: 57598   END: 64116</li><br><li>GENE OR4F5;   START: 65419   END: 71585</li><br><li>GENE AL627309.1;   START: 89295   END: 133723</li><br><li>GENE AL627309.3;   START: 89551   END: 91105</li><br></ol>
+                                                                  </body>
+                                                                  </html>
+
+
+* TEST 5:
+
+* Input:
+
+http://localhost:8080/geneList?chromo=1&start=2400&end=480000&json=1
+
+* Output:
+
+[{"external_name": "DDX11L1", "start": 11869, "end": 14409}, {"external_name": "WASH7P", "start": 14404, "end": 29570}, {"external_name": "MIR6859-1", "start": 17369, "end": 17436}, {"external_name": "MIR1302-2HG", "start": 29554, "end": 31109}, {"external_name": "MIR1302-2", "start": 30366, "end": 30503}, {"external_name": "FAM138A", "start": 34554, "end": 36081}, {"external_name": "OR4G4P", "start": 52473, "end": 53312}, {"external_name": "OR4G11P", "start": 57598, "end": 64116}, {"external_name": "OR4F5", "start": 65419, "end": 71585}, {"external_name": "AL627309.1", "start": 89295, "end": 133723}, {"external_name": "AL627309.3", "start": 89551, "end": 91105}, {"external_name": "CICP27", "start": 131025, "end": 134836}, {"external_name": "AL627309.6", "start": 135141, "end": 135895}, {"external_name": "AL627309.7", "start": 137682, "end": 137965}, {"external_name": "AL627309.2", "start": 139790, "end": 140339}, {"external_name": "AL627309.5", "start": 141474, "end": 173862}, {"external_name": "RNU6-1100P", "start": 157784, "end": 157887}, {"external_name": "AL627309.4", "start": 160446, "end": 161525}, {"external_name": "FO538757.1", "start": 182696, "end": 184174}, {"external_name": "WASH9P", "start": 185217, "end": 195411}, {"external_name": "MIR6859-2", "start": 187891, "end": 187958}, {"external_name": "AP006222.1", "start": 257864, "end": 359681}, {"external_name": "AP006222.2", "start": 266855, "end": 268655}, {"external_name": "RPL23AP24", "start": 347982, "end": 348366}, {"external_name": "AL732372.1", "start": 358857, "end": 366052}, {"external_name": "AL732372.2", "start": 365389, "end": 522928}, {"external_name": "WBP1LP7", "start": 439870, "end": 440232}, {"external_name": "OR4F29", "start": 450703, "end": 451697}]
